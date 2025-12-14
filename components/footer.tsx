@@ -6,51 +6,45 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-900">
+    <footer className="bg-white border-t border-zinc-200">
       {/* CTA Section */}
-      <section className="py-20 bg-blue-950/20 border-b border-zinc-900">
+      <section className="py-20 bg-zinc-50">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-100 mb-6">
-              Ready to Get Started?
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 tracking-tight">
+              Ready to get started?
             </h2>
-            <p className="text-xl text-zinc-400 mb-8">
-              Join developers who trust GateKeeperPro for secure authentication.
-              Sign up now and get 100 free credits.
+            <p className="text-lg text-zinc-600 mb-8">
+              Join developers building secure authentication with GateKeeperPro.
+              Start with 100 free credits.
             </p>
             <Button
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-semibold shadow-sm"
               onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/register'}
             >
-              Start Building for Free
+              Start Free Trial
             </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 border-t border-zinc-200">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                <FiShield className="text-xl text-zinc-100" />
+              <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
+                <FiShield className="text-xl text-white" />
               </div>
               <div>
-                <div className="font-bold text-lg text-zinc-100">GateKeeperPro</div>
-                <div className="text-xs text-zinc-500">OTP Verification Platform</div>
+                <div className="font-bold text-lg text-zinc-900">GateKeeperPro</div>
+                <div className="text-xs text-zinc-600">OTP Verification Platform</div>
               </div>
             </div>
-            <p className="text-zinc-400 text-sm max-w-md mb-4">
-              Secure, reliable OTP verification for modern applications. Built for developers, trusted by businesses.
+            <p className="text-zinc-600 text-sm max-w-md mb-4">
+              Enterprise-grade OTP verification for modern applications. Trusted by businesses worldwide.
             </p>
             <div className="flex gap-3">
               <a

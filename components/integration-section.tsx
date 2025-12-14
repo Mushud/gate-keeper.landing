@@ -84,35 +84,23 @@ export default function IntegrationSection() {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-zinc-950 relative">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-24 md:py-32 bg-zinc-50">
+      <div className="container mx-auto px-4">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-zinc-100 mb-4">
-            Quick & Easy Integration
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-sm font-medium mb-4">
+            Integration
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 tracking-tight">
+            Integrate in minutes
           </h2>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Choose your integration method. Start sending OTPs in minutes.
+          <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+            Choose between hosted checkout or direct API. Start verifying users immediately.
           </p>
-        </motion.div>
+        </div>
 
         {/* Code examples */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-5xl mx-auto"
-        >
+        <div className="max-w-5xl mx-auto">
           <Tabs defaultValue="standard" className="w-full">
             <TabsList className="grid w-full grid-cols-2 bg-zinc-800 border border-zinc-700 p-1">
               <TabsTrigger 
@@ -130,13 +118,13 @@ export default function IntegrationSection() {
             </TabsList>
 
             <TabsContent value="standard" className="mt-6">
-              <Card className="bg-zinc-900 border-zinc-800 p-6">
-                <div className="flex justify-between items-start mb-4">
+              <Card className="p-6 bg-white border-zinc-200">
+                <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-zinc-100 mb-1">
+                    <h3 className="text-lg font-semibold text-zinc-900 mb-1">
                       {codeExamples.standardCheckout.title}
                     </h3>
-                    <p className="text-sm text-zinc-400">
+                    <p className="text-sm text-zinc-600">
                       {codeExamples.standardCheckout.description}
                     </p>
                   </div>
@@ -157,8 +145,8 @@ export default function IntegrationSection() {
                     )}
                   </Button>
                 </div>
-                <div className="bg-zinc-950 rounded-lg p-4 overflow-x-auto border border-zinc-800">
-                  <pre className="text-sm text-zinc-300 font-mono">
+                <div className="bg-zinc-900 rounded-lg p-4 overflow-x-auto border border-zinc-700">
+                  <pre className="text-sm text-zinc-100 font-mono">
                     <code>{codeExamples.standardCheckout.code}</code>
                   </pre>
                 </div>
@@ -212,7 +200,7 @@ export default function IntegrationSection() {
               View Full Documentation →
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
