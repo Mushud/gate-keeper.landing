@@ -52,7 +52,7 @@ export default function HeroSection() {
             className="mb-6"
           >
             <Badge variant="secondary" className="px-4 py-2 text-sm bg-zinc-800 text-zinc-200 border-zinc-700">
-              🎉 Get 100 free credits on signup
+              Get 100 free credits on signup
             </Badge>
           </motion.div>
 
