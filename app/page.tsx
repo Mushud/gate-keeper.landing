@@ -4,6 +4,8 @@ import PricingSection from "@/components/pricing-section";
 import IntegrationSection from "@/components/integration-section";
 import Footer from "@/components/footer";
 
+export const dynamic = 'force-static';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-950">

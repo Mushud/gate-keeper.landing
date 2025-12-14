@@ -36,9 +36,8 @@ export default function HeroSection() {
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* Icon */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 1, scale: 1 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
             className="mb-8"
           >
             <div className="w-20 h-20 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center">
@@ -48,9 +47,8 @@ export default function HeroSection() {
 
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
             className="mb-6"
           >
             <Badge variant="secondary" className="px-4 py-2 text-sm bg-zinc-800 text-zinc-200 border-zinc-700">
@@ -60,9 +58,8 @@ export default function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mb-6 text-zinc-100 leading-tight"
           >
             Seamless OTP Verification
@@ -74,9 +71,8 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
             className="text-xl md:text-2xl text-zinc-400 mb-8 max-w-3xl"
           >
             Secure authentication with hosted checkout pages and direct API integration.
@@ -85,9 +81,8 @@ export default function HeroSection() {
 
           {/* Trust badges */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap gap-6 justify-center mb-10 text-zinc-400"
           >
             <div className="flex items-center gap-2">
@@ -106,9 +101,8 @@ export default function HeroSection() {
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Button
@@ -129,9 +123,8 @@ export default function HeroSection() {
 
           {/* Stats preview */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
             className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-2xl"
           >
             <div className="text-center">
