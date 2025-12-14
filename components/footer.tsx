@@ -1,0 +1,155 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { FiShield, FiGithub, FiTwitter, FiMail } from "react-icons/fi";
+import { Button } from "./ui/button";
+
+export default function Footer() {
+  return (
+    <footer className="bg-zinc-950 border-t border-zinc-900">
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-950/20 border-b border-zinc-900">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-100 mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="text-xl text-zinc-400 mb-8">
+              Join developers who trust GateKeeperPro for secure authentication.
+              Sign up now and get 100 free credits.
+            </p>
+            <Button
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg"
+              onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/register'}
+            >
+              Start Building for Free
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Main Footer */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* Brand */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+                <FiShield className="text-xl text-zinc-100" />
+              </div>
+              <div>
+                <div className="font-bold text-lg text-zinc-100">GateKeeperPro</div>
+                <div className="text-xs text-zinc-500">OTP Verification Platform</div>
+              </div>
+            </div>
+            <p className="text-zinc-400 text-sm max-w-md mb-4">
+              Secure, reliable OTP verification for modern applications. Built for developers, trusted by businesses.
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors"
+              >
+                <FiGithub className="text-lg" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors"
+              >
+                <FiTwitter className="text-lg" />
+              </a>
+              <a
+                href="mailto:support@gatekeeperpro.cc"
+                className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors"
+              >
+                <FiMail className="text-lg" />
+              </a>
+            </div>
+          </div>
+
+          {/* Product Links */}
+          <div>
+            <h3 className="font-semibold text-zinc-100 mb-4">Product</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#features" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="https://developer.gatekeeperpro.cc/developer" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  API Docs
+                </a>
+              </li>
+              <li>
+                <a href="#integration" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Integration
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company Links */}
+          <div>
+            <h3 className="font-semibold text-zinc-100 mb-4">Company</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://developer.gatekeeperpro.cc/login" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Login
+                </a>
+              </li>
+              <li>
+                <a href="https://developer.gatekeeperpro.cc/register" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Sign Up
+                </a>
+              </li>
+              <li>
+                <a href="https://developer.gatekeeperpro.cc/dashboard" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a href="mailto:support@gatekeeperpro.cc" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                  Support
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-zinc-900 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-zinc-500 text-sm">
+              © 2025 GateKeeperPro. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <a href="#" className="text-zinc-500 hover:text-zinc-400 text-sm transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-zinc-500 hover:text-zinc-400 text-sm transition-colors">
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
