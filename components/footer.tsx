@@ -35,9 +35,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
-                <FiShield className="text-xl text-white" />
-              </div>
+              <img 
+                src="/logo.png" 
+                alt="GateKeeperPro Logo" 
+                className="w-10 h-10 object-contain"
+              />
               <div>
                 <div className="font-bold text-lg text-zinc-900">GateKeeperPro</div>
                 <div className="text-xs text-zinc-600">OTP Verification Platform</div>
