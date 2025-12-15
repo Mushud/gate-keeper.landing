@@ -27,6 +27,13 @@ const features = [
     color: "from-purple-500 to-pink-500",
   },
   {
+    title: "KYC Phone Verification",
+    description:
+      "Verify phone numbers and resolve registered names instantly. 1 credit per verification for Ghana numbers.",
+    icon: FiShield,
+    color: "from-blue-500 to-indigo-500",
+  },
+  {
     title: "Name Resolution",
     description:
       "Automatically resolve phone numbers to names in Ghana. Perfect for KYC and user verification.",
@@ -43,7 +50,7 @@ const features = [
   {
     title: "Real-time Dashboard",
     description:
-      "Monitor OTP delivery, success rates, and usage analytics in a beautiful developer portal.",
+      "Monitor OTP delivery, success rates, and KYC analytics in a beautiful developer portal.",
     icon: FiBarChart2,
     color: "from-indigo-500 to-blue-500",
   },
