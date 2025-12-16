@@ -88,63 +88,72 @@ const features = [
     description:
       "Beautiful, pre-built checkout pages like Stripe. No UI development needed—just redirect and verify.",
     icon: FiShoppingCart,
-    gradient: "from-blue-500 via-cyan-500 to-teal-500",
+    color: "text-blue-600",
+    bgColor: "bg-blue-100",
   },
   {
     title: "Dual Integration Modes",
     description:
       "Choose between hosted checkout or direct API integration. Flexible for any use case.",
     icon: FiCode,
-    gradient: "from-purple-500 via-pink-500 to-rose-500",
+    color: "text-purple-600",
+    bgColor: "bg-purple-100",
   },
   {
     title: "KYC Phone Verification",
     description:
       "Verify phone numbers and resolve registered names instantly. 1 credit per verification for Ghana numbers.",
     icon: FiShield,
-    gradient: "from-blue-500 via-indigo-500 to-purple-500",
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-100",
   },
   {
     title: "Name Resolution",
     description:
       "Automatically resolve phone numbers to names in Ghana. Perfect for KYC and user verification.",
     icon: FiUser,
-    gradient: "from-orange-500 via-red-500 to-pink-500",
+    color: "text-orange-600",
+    bgColor: "bg-orange-100",
   },
   {
     title: "3-Strike Security",
     description:
       "Built-in brute force protection with automatic lockout after 3 failed verification attempts.",
     icon: FiShield,
-    gradient: "from-green-500 via-emerald-500 to-teal-500",
+    color: "text-green-600",
+    bgColor: "bg-green-100",
   },
   {
     title: "Real-time Dashboard",
     description:
       "Monitor OTP delivery, success rates, and KYC analytics in a beautiful developer portal.",
     icon: FiBarChart2,
-    gradient: "from-indigo-500 via-blue-500 to-cyan-500",
+    color: "text-cyan-600",
+    bgColor: "bg-cyan-100",
   },
   {
     title: "Flexible Billing",
     description:
       "Credit-based pricing with 7 tiers. Credits never expire. Volume discounts up to 26% off.",
     icon: FiCreditCard,
-    gradient: "from-yellow-500 via-orange-500 to-red-500",
+    color: "text-amber-600",
+    bgColor: "bg-amber-100",
   },
   {
     title: "Webhook Support",
     description:
       "Real-time webhooks for OTP events. Get instant notifications when verifications succeed or fail.",
     icon: FiCode,
-    gradient: "from-cyan-500 via-teal-500 to-green-500",
+    color: "text-teal-600",
+    bgColor: "bg-teal-100",
   },
   {
     title: "99.9% Uptime SLA",
     description:
       "Enterprise-grade reliability with guaranteed uptime. Your verifications work when you need them.",
     icon: FiShield,
-    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
+    color: "text-violet-600",
+    bgColor: "bg-violet-100",
   },
 ];
 
@@ -179,17 +188,14 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
               className="group relative"
             >
-              {/* Light gradient glow on hover */}
-              <div className={`absolute -inset-[1px] bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur`} />
-              
               {/* Card content */}
-              <div className="relative h-full bg-gradient-to-b from-neutral-50 to-white rounded-2xl p-8 border border-zinc-200 group-hover:border-zinc-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
+              <div className="relative h-full bg-white rounded-2xl p-8 border border-zinc-300 hover:border-zinc-400 hover:shadow-lg transition-all duration-300 overflow-hidden">
                 {/* Grid Pattern */}
                 <Grid size={20} />
                 
-                {/* Icon with gradient background */}
-                <div className={`relative z-20 w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className="text-xl text-white" />
+                {/* Icon with white background and gray outline */}
+                <div className={`relative z-20 w-12 h-12 rounded-xl bg-white border border-zinc-300 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className={`text-xl ${feature.color}`} />
                 </div>
 
                 {/* Content */}
