@@ -3,18 +3,23 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
-import {  
-  CheckmarkSquareIcon, 
-  ArrowRight02Icon, 
+import {
+  CheckmarkSquareIcon,
+  ArrowRight02Icon,
   Shield02Icon,
   LockIcon,
   MailLock02Icon,
   SecurityCheckIcon,
   SmartPhone01Icon,
   Key01Icon,
-  FingerPrintIcon
+  FingerPrintIcon,
 } from "@hugeicons/core-free-icons";
 import { Button } from "./ui/button";
+import {
+  TextRevealCard,
+  TextRevealCardDescription,
+  TextRevealCardTitle,
+} from "./ui/text-reveal-card";
 
 const floatingIcons = [
   { icon: Shield02Icon, color: "bg-blue-500" },
@@ -32,13 +37,13 @@ interface IconState {
   velocity: { x: number; y: number };
 }
 
-function FloatingIcon({ 
-  icon: Icon, 
-  color, 
-  containerRef, 
+function FloatingIcon({
+  icon: Icon,
+  color,
+  containerRef,
   id,
   allIcons,
-  updateIcon
+  updateIcon,
 }: any) {
   const iconRef = useRef<HTMLDivElement>(null);
   const x = useSpring(allIcons[id].position.x, { stiffness: 50, damping: 20 });
@@ -61,7 +66,12 @@ function FloatingIcon({
         opacity: 0.2,
       }}
     >
-      <HugeiconsIcon icon={Icon} size={32} strokeWidth={2} className="text-white" />
+      <HugeiconsIcon
+        icon={Icon}
+        size={32}
+        strokeWidth={2}
+        className="text-white"
+      />
     </motion.div>
   );
 }
@@ -95,7 +105,7 @@ export default function HeroSection() {
           // Icon-to-icon collision detection
           for (let j = 0; j < prevIcons.length; j++) {
             if (i === j) continue;
-            
+
             const other = prevIcons[j];
             const dx2 = newX - other.position.x;
             const dy2 = newY - other.position.y;
@@ -106,19 +116,19 @@ export default function HeroSection() {
               // Calculate collision response
               const nx = dx2 / dist;
               const ny = dy2 / dist;
-              
+
               // Relative velocity
               const dvx = newVelX - other.velocity.x;
               const dvy = newVelY - other.velocity.y;
               const dvn = dvx * nx + dvy * ny;
-              
+
               // Only resolve if moving towards each other
               if (dvn < 0) {
                 // Apply impulse
                 const impulse = dvn * 0.8;
                 newVelX -= impulse * nx;
                 newVelY -= impulse * ny;
-                
+
                 // Separate icons
                 const overlap = minDist - dist;
                 newX += nx * overlap * 0.5;
@@ -167,10 +177,13 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-white border-b border-zinc-200 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative bg-white border-b border-zinc-200 overflow-hidden"
+    >
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px]" />
-      
+
       {/* Floating Icons */}
       {floatingIcons.map((item, index) => (
         <FloatingIcon
@@ -182,11 +195,11 @@ export default function HeroSection() {
           allIcons={icons}
         />
       ))}
-      
+
       <div className="relative container mx-auto px-4 pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Small badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-300 text-zinc-700 text-sm font-medium mb-6">
             <HugeiconsIcon icon={Shield02Icon} size={16} strokeWidth={1.5} />
             <span>Trusted by developers in Ghana</span>
           </div>
@@ -195,32 +208,44 @@ export default function HeroSection() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-zinc-900 tracking-tight">
             Enterprise OTP Verification
             <br />
-            <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-zinc-900 to-zinc-700 bg-clip-text text-transparent">
               Made Simple
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-zinc-600 mb-10 max-w-2xl leading-relaxed">
-            Secure, scalable OTP verification and KYC phone verification with hosted checkout pages and REST API.
-            Integrate in minutes, trusted by businesses.
+            Secure, scalable OTP verification and KYC phone verification with
+            hosted checkout pages and REST API. Integrate in minutes, trusted by
+            businesses.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-base font-semibold rounded-lg shadow-sm"
-              onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/register'}
+              className="bg-black hover:bg-zinc-800 text-white px-8 py-4 text-base font-semibold rounded-lg shadow-sm"
+              onClick={() =>
+                (window.location.href =
+                  "https://developer.gatekeeperpro.cc/register")
+              }
             >
               Start Free Trial
-              <HugeiconsIcon icon={ArrowRight02Icon} size={18} strokeWidth={1.5} className="ml-2" />
+              <HugeiconsIcon
+                icon={ArrowRight02Icon}
+                size={18}
+                strokeWidth={1.5}
+                className="ml-2"
+              />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-zinc-300 text-zinc-700 hover:bg-zinc-50 px-8 py-4 text-base font-semibold rounded-lg"
-              onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/developer'}
+              onClick={() =>
+                (window.location.href =
+                  "https://developer.gatekeeperpro.cc/developer")
+              }
             >
               View Documentation
             </Button>
@@ -229,19 +254,39 @@ export default function HeroSection() {
           {/* Key features */}
           <div className="flex flex-wrap gap-6 justify-center text-sm text-zinc-600 mb-16">
             <div className="flex items-center gap-2">
-              <HugeiconsIcon icon={CheckmarkSquareIcon} size={20} strokeWidth={1.5} className="text-green-600" />
+              <HugeiconsIcon
+                icon={CheckmarkSquareIcon}
+                size={20}
+                strokeWidth={1.5}
+                className="text-green-600"
+              />
               <span>100 free credits</span>
             </div>
             <div className="flex items-center gap-2">
-              <HugeiconsIcon icon={CheckmarkSquareIcon} size={20} strokeWidth={1.5} className="text-green-600" />
+              <HugeiconsIcon
+                icon={CheckmarkSquareIcon}
+                size={20}
+                strokeWidth={1.5}
+                className="text-green-600"
+              />
               <span>KYC verification</span>
             </div>
             <div className="flex items-center gap-2">
-              <HugeiconsIcon icon={CheckmarkSquareIcon} size={20} strokeWidth={1.5} className="text-green-600" />
+              <HugeiconsIcon
+                icon={CheckmarkSquareIcon}
+                size={20}
+                strokeWidth={1.5}
+                className="text-green-600"
+              />
               <span>No credit card required</span>
             </div>
             <div className="flex items-center gap-2">
-              <HugeiconsIcon icon={CheckmarkSquareIcon} size={20} strokeWidth={1.5} className="text-green-600" />
+              <HugeiconsIcon
+                icon={CheckmarkSquareIcon}
+                size={20}
+                strokeWidth={1.5}
+                className="text-green-600"
+              />
               <span>5-minute setup</span>
             </div>
           </div>
@@ -249,15 +294,21 @@ export default function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 w-full max-w-3xl pt-8 border-t border-zinc-200">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">99.9%</div>
+              <div className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">
+                99.9%
+              </div>
               <div className="text-sm text-zinc-600">Uptime SLA</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">&lt;2s</div>
+              <div className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">
+                &lt;2s
+              </div>
               <div className="text-sm text-zinc-600">Avg Delivery</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">24/7</div>
+              <div className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">
+                24/7
+              </div>
               <div className="text-sm text-zinc-600">Support</div>
             </div>
           </div>

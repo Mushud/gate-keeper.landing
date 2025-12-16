@@ -206,7 +206,7 @@ export default function PricingSection() {
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1 bg-zinc-100 border border-zinc-300 rounded-full text-zinc-700 text-sm font-medium mb-4">
             Pricing
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 tracking-tight">
@@ -287,7 +287,7 @@ export default function PricingSection() {
                 <Button
                   className={`w-full relative z-20 font-semibold transition-all duration-300 ${
                     tier.popular
-                      ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg"
+                      ? "bg-black hover:bg-zinc-800 text-white shadow-md hover:shadow-lg"
                       : "bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-300 hover:border-zinc-400"
                   }`}
                   onClick={() =>
@@ -308,7 +308,7 @@ export default function PricingSection() {
             Need custom solutions or higher volumes?{" "}
             <a
               href="mailto:support@gatekeeperpro.cc"
-              className="text-blue-600 hover:text-blue-700 font-medium underline"
+              className="text-zinc-900 hover:text-zinc-700 font-medium underline"
             >
               Contact sales
             </a>

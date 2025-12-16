@@ -167,7 +167,7 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1 bg-zinc-100 border border-zinc-300 rounded-full text-zinc-700 text-sm font-medium mb-4">
             Features
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 tracking-tight">

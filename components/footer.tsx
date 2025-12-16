@@ -21,7 +21,7 @@ export default function Footer() {
             </p>
             <Button
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-semibold shadow-sm"
+              className="bg-black hover:bg-zinc-800 text-white px-8 py-4 font-semibold shadow-sm"
               onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/register'}
             >
               Start Free Trial

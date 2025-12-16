@@ -20,7 +20,7 @@ export default function Header() {
               alt="GateKeeperPro" 
               className="w-8 h-8 object-contain"
             />
-            <span className="font-bold text-lg text-zinc-900 group-hover:text-blue-600 transition-colors">
+            <span className="font-bold text-lg text-zinc-900 group-hover:text-zinc-700 transition-colors">
               GateKeeperPro
             </span>
           </a>
@@ -57,7 +57,7 @@ export default function Header() {
               Login
             </Button>
             <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-black hover:bg-zinc-800 text-white"
               onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/register'}
             >
               Get Started
@@ -123,7 +123,7 @@ export default function Header() {
                   Login
                 </Button>
                 <Button
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full bg-black hover:bg-zinc-800 text-white"
                   onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/register'}
                 >
                   Get Started

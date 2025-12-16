@@ -89,7 +89,7 @@ export default function IntegrationSection() {
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1 bg-zinc-100 border border-zinc-300 rounded-full text-zinc-700 text-sm font-medium mb-4">
             Integration
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 tracking-tight">
@@ -195,7 +195,7 @@ export default function IntegrationSection() {
           <div className="text-center mt-8">
             <Button
               variant="link"
-              className="text-blue-500 hover:text-blue-400"
+              className="text-zinc-900 hover:text-zinc-700"
               onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/developer'}
             >
               View Full Documentation →
