@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "framer-motion";
 import {
   FiShoppingCart,
@@ -9,7 +10,77 @@ import {
   FiBarChart2,
   FiCreditCard,
 } from "react-icons/fi";
-import { Card } from "./ui/card";
+
+export function GridPattern({ width, height, x, y, squares, ...props }: any) {
+  const patternId = useId();
+ 
+  return (
+    <svg aria-hidden="true" {...props}>
+      <defs>
+        <pattern
+          id={patternId}
+          width={width}
+          height={height}
+          patternUnits="userSpaceOnUse"
+          x={x}
+          y={y}
+        >
+          <path d={`M.5 ${height}V.5H${width}`} fill="none" />
+        </pattern>
+      </defs>
+      <rect
+        width="100%"
+        height="100%"
+        strokeWidth={0}
+        fill={`url(#${patternId})`}
+      />
+      {squares && (
+        <svg x={x} y={y} className="overflow-visible">
+          {squares.map(([x, y]: any) => (
+            <rect
+              strokeWidth="0"
+              key={`${x}-${y}`}
+              width={width + 1}
+              height={height + 1}
+              x={x * width}
+              y={y * height}
+            />
+          ))}
+        </svg>
+      )}
+    </svg>
+  );
+}
+
+export const Grid = ({
+  pattern,
+  size,
+}: {
+  pattern?: number[][];
+  size?: number;
+}) => {
+  const p = pattern ?? [
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
+  ];
+  return (
+    <div className="pointer-events-none absolute left-1/2 top-0 -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
+      <div className="absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] from-zinc-100/30 to-zinc-300/30 opacity-100">
+        <GridPattern
+          width={size ?? 20}
+          height={size ?? 20}
+          x="-12"
+          y="4"
+          squares={p}
+          className="absolute inset-0 h-full w-full mix-blend-overlay stroke-black/10 fill-black/10"
+        />
+      </div>
+    </div>
+  );
+};
 
 const features = [
   {
@@ -17,56 +88,74 @@ const features = [
     description:
       "Beautiful, pre-built checkout pages like Stripe. No UI development needed—just redirect and verify.",
     icon: FiShoppingCart,
-    color: "from-blue-500 to-cyan-500",
+    gradient: "from-blue-500 via-cyan-500 to-teal-500",
   },
   {
     title: "Dual Integration Modes",
     description:
       "Choose between hosted checkout or direct API integration. Flexible for any use case.",
     icon: FiCode,
-    color: "from-purple-500 to-pink-500",
+    gradient: "from-purple-500 via-pink-500 to-rose-500",
   },
   {
     title: "KYC Phone Verification",
     description:
       "Verify phone numbers and resolve registered names instantly. 1 credit per verification for Ghana numbers.",
     icon: FiShield,
-    color: "from-blue-500 to-indigo-500",
+    gradient: "from-blue-500 via-indigo-500 to-purple-500",
   },
   {
     title: "Name Resolution",
     description:
       "Automatically resolve phone numbers to names in Ghana. Perfect for KYC and user verification.",
     icon: FiUser,
-    color: "from-orange-500 to-red-500",
+    gradient: "from-orange-500 via-red-500 to-pink-500",
   },
   {
     title: "3-Strike Security",
     description:
       "Built-in brute force protection with automatic lockout after 3 failed verification attempts.",
     icon: FiShield,
-    color: "from-green-500 to-emerald-500",
+    gradient: "from-green-500 via-emerald-500 to-teal-500",
   },
   {
     title: "Real-time Dashboard",
     description:
       "Monitor OTP delivery, success rates, and KYC analytics in a beautiful developer portal.",
     icon: FiBarChart2,
-    color: "from-indigo-500 to-blue-500",
+    gradient: "from-indigo-500 via-blue-500 to-cyan-500",
   },
   {
     title: "Flexible Billing",
     description:
       "Credit-based pricing with 7 tiers. Credits never expire. Volume discounts up to 26% off.",
     icon: FiCreditCard,
-    color: "from-yellow-500 to-orange-500",
+    gradient: "from-yellow-500 via-orange-500 to-red-500",
+  },
+  {
+    title: "Webhook Support",
+    description:
+      "Real-time webhooks for OTP events. Get instant notifications when verifications succeed or fail.",
+    icon: FiCode,
+    gradient: "from-cyan-500 via-teal-500 to-green-500",
+  },
+  {
+    title: "99.9% Uptime SLA",
+    description:
+      "Enterprise-grade reliability with guaranteed uptime. Your verifications work when you need them.",
+    icon: FiShield,
+    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
   },
 ];
 
 export default function FeaturesSection() {
   return (
-    <section className="py-24 md:py-32 bg-zinc-50">
-      <div className="container mx-auto px-4">
+    <section className="py-24 md:py-32 bg-zinc-50 relative overflow-hidden">
+      {/* Background gradient orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-20">
           <div className="inline-block px-4 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-sm font-medium mb-4">
@@ -76,33 +165,44 @@ export default function FeaturesSection() {
             Everything you need to verify users
           </h2>
           <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-            Enterprise-grade OTP verification with the flexibility developers
-            love
+            Enterprise-grade OTP verification with the flexibility developers love
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
-            <div key={feature.title}>
-              <Card className="p-8 bg-white border-zinc-200 hover:border-blue-200 hover:shadow-lg transition-all duration-200 h-full group">
-                <div className="space-y-4">
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-                    <feature.icon className="text-xl text-blue-600" />
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <h3 className="text-xl font-semibold text-zinc-900 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-zinc-600 leading-relaxed text-sm">
-                      {feature.description}
-                    </p>
-                  </div>
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative"
+            >
+              {/* Light gradient glow on hover */}
+              <div className={`absolute -inset-[1px] bg-gradient-to-r ${feature.gradient} rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur`} />
+              
+              {/* Card content */}
+              <div className="relative h-full bg-gradient-to-b from-neutral-50 to-white rounded-2xl p-8 border border-zinc-200 group-hover:border-zinc-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                {/* Grid Pattern */}
+                <Grid size={20} />
+                
+                {/* Icon with gradient background */}
+                <div className={`relative z-20 w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="text-xl text-white" />
                 </div>
-              </Card>
-            </div>
+
+                {/* Content */}
+                <div className="relative z-20">
+                  <h3 className="text-xl font-semibold text-zinc-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-zinc-600 leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

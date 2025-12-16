@@ -1,11 +1,73 @@
 "use client";
 
+import { useId } from "react";
 import { motion } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { CheckmarkSquareIcon } from "@hugeicons/core-free-icons";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
+
+export function GridPattern({ width, height, x, y, squares, ...props }: any) {
+  const patternId = useId();
+ 
+  return (
+    <svg aria-hidden="true" {...props}>
+      <defs>
+        <pattern
+          id={patternId}
+          width={width}
+          height={height}
+          patternUnits="userSpaceOnUse"
+          x={x}
+          y={y}
+        >
+          <path d={`M.5 ${height}V.5H${width}`} fill="none" />
+        </pattern>
+      </defs>
+      <rect
+        width="100%"
+        height="100%"
+        strokeWidth={0}
+        fill={`url(#${patternId})`}
+      />
+      {squares && (
+        <svg x={x} y={y} className="overflow-visible">
+          {squares.map(([x, y]: any) => (
+            <rect
+              strokeWidth="0"
+              key={`${x}-${y}`}
+              width={width + 1}
+              height={height + 1}
+              x={x * width}
+              y={y * height}
+            />
+          ))}
+        </svg>
+      )}
+    </svg>
+  );
+}
+
+export const LinePattern = () => {
+  return (
+    <div className="pointer-events-none absolute inset-0 h-full w-full opacity-30">
+      <div className="absolute inset-0" style={{
+        backgroundImage: `
+          linear-gradient(to right, #e4e4e7 1px, transparent 1px),
+          linear-gradient(to bottom, #e4e4e7 1px, transparent 1px)
+        `,
+        backgroundSize: '40px 40px',
+        maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 80%)',
+        WebkitMaskImage: 'radial-gradient(ellipse at center, black 20%, transparent 80%)',
+      }} />
+      {/* Diagonal accent lines */}
+      <div className="absolute inset-0 opacity-50" style={{
+        backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, #e4e4e7 35px, #e4e4e7 37px)',
+      }} />
+    </div>
+  );
+};
 
 const pricingTiers = [
   {
@@ -158,27 +220,38 @@ export default function PricingSection() {
         {/* Pricing grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
           {pricingTiers.map((tier, index) => (
-            <div
+            <motion.div
               key={tier.name}
-              className={index >= 4 ? "md:col-span-2 lg:col-span-1" : ""}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className={`group relative ${index >= 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
-              <Card
-                className={`p-8 h-full flex flex-col relative ${
-                  tier.popular
-                    ? "bg-blue-50 border-2 border-blue-600 shadow-lg"
-                    : "bg-white border-zinc-200"
-                } hover:shadow-md transition-all duration-200`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full">
-                    Popular
-                  </div>
-                )}
+              {/* Light gradient glow on hover */}
+              <div className="absolute -inset-[1px] bg-gradient-to-br from-zinc-400 via-zinc-300 to-zinc-200 rounded-2xl opacity-0 group-hover:opacity-15 transition duration-500 blur-sm" />
+              
+              {/* Card content */}
+              <div className={`relative p-8 h-full flex flex-col rounded-2xl border overflow-hidden transition-all duration-300 group-hover:shadow-xl ${
+                tier.popular
+                  ? "bg-white border-zinc-300 border-2 shadow-lg"
+                  : "bg-white border-zinc-200 group-hover:border-zinc-300"
+              }`}>
+                {/* Line Pattern */}
+                <LinePattern />
 
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-zinc-900 mb-3">
-                    {tier.name}
-                  </h3>
+                <div className="flex-1 relative z-20">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-bold text-zinc-900">
+                      {tier.name}
+                    </h3>
+                    {tier.popular && (
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold">
+                        <span>⭐</span>
+                        <span>Most Popular</span>
+                      </div>
+                    )}
+                  </div>
                   <div className="mb-6">
                     <div className="flex items-baseline gap-1">
                       <span className="text-4xl font-bold text-zinc-900">
@@ -212,10 +285,10 @@ export default function PricingSection() {
                 </div>
 
                 <Button
-                  className={`w-full ${
+                  className={`w-full relative z-20 font-semibold transition-all duration-300 ${
                     tier.popular
-                      ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
-                      : "bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-300"
+                      ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg"
+                      : "bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-300 hover:border-zinc-400"
                   }`}
                   onClick={() =>
                     (window.location.href =
@@ -224,8 +297,8 @@ export default function PricingSection() {
                 >
                   Get Started
                 </Button>
-              </Card>
-            </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
