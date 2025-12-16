@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiCopy, FiCheck } from "react-icons/fi";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Copy01Icon, CheckmarkCircle01Icon as CheckIcon } from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Card } from "./ui/card";
@@ -136,11 +137,11 @@ export default function IntegrationSection() {
                   >
                     {copiedTab === 'standard' ? (
                       <>
-                        <FiCheck className="mr-2" /> Copied
+                        <HugeiconsIcon icon={CheckIcon} size={18} strokeWidth={1.5} className="mr-2" /> Copied
                       </>
                     ) : (
                       <>
-                        <FiCopy className="mr-2" /> Copy
+                        <HugeiconsIcon icon={Copy01Icon} size={18} strokeWidth={1.5} className="mr-2" /> Copy
                       </>
                     )}
                   </Button>
@@ -172,11 +173,11 @@ export default function IntegrationSection() {
                   >
                     {copiedTab === 'direct' ? (
                       <>
-                        <FiCheck className="mr-2" /> Copied
+                        <HugeiconsIcon icon={CheckIcon} size={18} strokeWidth={1.5} className="mr-2" /> Copied
                       </>
                     ) : (
                       <>
-                        <FiCopy className="mr-2" /> Copy
+                        <HugeiconsIcon icon={Copy01Icon} size={18} strokeWidth={1.5} className="mr-2" /> Copy
                       </>
                     )}
                   </Button>

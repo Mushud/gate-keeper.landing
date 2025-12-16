@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiShield, FiGithub, FiTwitter, FiMail } from "react-icons/fi";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Shield01Icon, Github01Icon, TwitterIcon, Mail01Icon } from "@hugeicons/core-free-icons";
 import { Button } from "./ui/button";
 
 export default function Footer() {
@@ -55,7 +56,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors"
               >
-                <FiGithub className="text-lg" />
+                <HugeiconsIcon icon={Github01Icon} size={20} strokeWidth={1.5} />
               </a>
               <a
                 href="https://twitter.com"
@@ -63,13 +64,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors"
               >
-                <FiTwitter className="text-lg" />
+                <HugeiconsIcon icon={TwitterIcon} size={20} strokeWidth={1.5} />
               </a>
               <a
                 href="mailto:support@gatekeeperpro.cc"
                 className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 transition-colors"
               >
-                <FiMail className="text-lg" />
+                <HugeiconsIcon icon={Mail01Icon} size={20} strokeWidth={1.5} />
               </a>
             </div>
           </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiCheck } from "react-icons/fi";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { CheckmarkSquareIcon } from "@hugeicons/core-free-icons";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
@@ -175,19 +176,35 @@ export default function PricingSection() {
                 )}
 
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-zinc-900 mb-3">{tier.name}</h3>
+                  <h3 className="text-xl font-bold text-zinc-900 mb-3">
+                    {tier.name}
+                  </h3>
                   <div className="mb-6">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-zinc-900">GHS {tier.price}</span>
+                      <span className="text-4xl font-bold text-zinc-900">
+                        GHS {tier.price}
+                      </span>
                     </div>
-                    <div className="text-sm font-medium text-zinc-700 mt-2">{tier.credits.toLocaleString()} credits</div>
-                    <div className="text-xs text-zinc-500">GHS {tier.pricePerCredit}/credit · {tier.duration}</div>
+                    <div className="text-sm font-medium text-zinc-700 mt-2">
+                      {tier.credits.toLocaleString()} credits
+                    </div>
+                    <div className="text-xs text-zinc-500">
+                      GHS {tier.pricePerCredit}/credit · {tier.duration}
+                    </div>
                   </div>
 
                   <ul className="space-y-3 mb-8">
                     {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-zinc-700">
-                        <FiCheck className="text-green-600 mt-0.5 flex-shrink-0" />
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-zinc-700"
+                      >
+                        <HugeiconsIcon
+                          icon={CheckmarkSquareIcon}
+                          size={18}
+                          strokeWidth={1.5}
+                          className="text-green-600 mt-0.5 flex-shrink-0"
+                        />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -200,7 +217,10 @@ export default function PricingSection() {
                       ? "bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
                       : "bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-300"
                   }`}
-                  onClick={() => window.location.href = 'https://developer.gatekeeperpro.cc/billing'}
+                  onClick={() =>
+                    (window.location.href =
+                      "https://developer.gatekeeperpro.cc/billing")
+                  }
                 >
                   Get Started
                 </Button>
@@ -213,7 +233,10 @@ export default function PricingSection() {
         <div className="text-center mt-16 pt-8 border-t border-zinc-200">
           <p className="text-zinc-600">
             Need custom solutions or higher volumes?{" "}
-            <a href="mailto:support@gatekeeperpro.cc" className="text-blue-600 hover:text-blue-700 font-medium underline">
+            <a
+              href="mailto:support@gatekeeperpro.cc"
+              className="text-blue-600 hover:text-blue-700 font-medium underline"
+            >
               Contact sales
             </a>
           </p>
