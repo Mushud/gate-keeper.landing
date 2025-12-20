@@ -241,7 +241,7 @@ export default function PricingSection() {
           <p className="text-zinc-600">
             Need custom solutions or higher volumes?{" "}
             <a
-              href="mailto:support@gatekeeperpro.cc"
+              href="mailto:jayedabraham@gmail.com"
               className="text-zinc-900 hover:text-zinc-700 font-medium underline"
             >
               Contact sales

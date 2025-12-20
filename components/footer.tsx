@@ -122,7 +122,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:support@gatekeeperpro.cc" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
+                <a href="mailto:jayedabraham@gmail.com" className="text-zinc-400 hover:text-zinc-100 text-sm transition-colors">
                   Support
                 </a>
               </li>
