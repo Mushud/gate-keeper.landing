@@ -71,114 +71,48 @@ export const LinePattern = () => {
 
 const pricingTiers = [
   {
-    name: "Starter",
-    credits: 6200,
-    price: 150,
-    pricePerCredit: "0.02419",
-    duration: "1 month",
-    popular: false,
-    features: [
-      "6,200 SMS & Email OTPs",
-      "Hosted Checkout Pages",
-      "Direct API Access",
-      "Basic Analytics",
-      "Email Support",
-    ],
-  },
-  {
-    name: "Basic",
-    credits: 8030,
-    price: 200,
-    pricePerCredit: "0.02491",
-    duration: "1 month",
-    popular: false,
-    features: [
-      "8,030 SMS & Email OTPs",
-      "Hosted Checkout Pages",
-      "Direct API Access",
-      "Basic Analytics",
-      "Email Support",
-    ],
-  },
-  {
-    name: "Growth",
-    credits: 13240,
+    name: "Developer",
+    credits: 9000,
     price: 300,
-    pricePerCredit: "0.02266",
-    duration: "3 months",
+    pricePerCredit: "0.03333",
+    duration: "No Expiry",
+    popular: false,
+    features: [
+      "9,000 SMS & Email OTPs",
+      "Hosted Checkout Pages",
+      "Direct API Access",
+      "Basic Analytics",
+      "Email Support",
+      "Custom Branding",
+    ],
+  },
+  {
+    name: "Startup",
+    credits: 25000,
+    price: 500,
+    pricePerCredit: "0.02000",
+    duration: "No Expiry",
     popular: true,
     features: [
-      "13,240 SMS & Email OTPs",
+      "25,000 SMS & Email OTPs",
       "Hosted Checkout Pages",
       "Direct API Access",
       "Advanced Analytics",
       "Priority Support",
-      "Custom Sender ID",
-    ],
-  },
-  {
-    name: "Pro",
-    credits: 22900,
-    price: 500,
-    pricePerCredit: "0.02183",
-    duration: "3 months",
-    popular: false,
-    features: [
-      "22,900 SMS & Email OTPs",
-      "Hosted Checkout Pages",
-      "Direct API Access",
-      "Advanced Analytics",
-      "Priority Support",
-      "Custom Sender ID",
+      "Custom Branding",
+      "Webhook Integration",
       "API Rate Limit Increase",
-    ],
-  },
-  {
-    name: "Business",
-    credits: 53200,
-    price: 1000,
-    pricePerCredit: "0.01880",
-    duration: "3 months",
-    popular: false,
-    features: [
-      "53,200 SMS & Email OTPs",
-      "Hosted Checkout Pages",
-      "Direct API Access",
-      "Enterprise Analytics",
-      "24/7 Support",
-      "Custom Sender ID",
-      "API Rate Limit Increase",
-      "Custom Integrations",
-    ],
-  },
-  {
-    name: "Premium",
-    credits: 112000,
-    price: 2000,
-    pricePerCredit: "0.01786",
-    duration: "3 months",
-    popular: false,
-    features: [
-      "112,000 SMS & Email OTPs",
-      "Hosted Checkout Pages",
-      "Direct API Access",
-      "Enterprise Analytics",
-      "24/7 Support",
-      "Custom Sender ID",
-      "API Rate Limit Increase",
-      "Custom Integrations",
-      "Dedicated Account Manager",
     ],
   },
   {
     name: "Enterprise",
-    credits: 170000,
-    price: 3000,
-    pricePerCredit: "0.01765",
-    duration: "6 months",
+    credits: 65000,
+    price: 1200,
+    pricePerCredit: "0.01846",
+    duration: "No Expiry",
     popular: false,
     features: [
-      "170,000 SMS & Email OTPs",
+      "65,000 SMS & Email OTPs",
       "Hosted Checkout Pages",
       "Direct API Access",
       "Enterprise Analytics",
@@ -218,15 +152,15 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {pricingTiers.map((tier, index) => (
             <motion.div
               key={tier.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative ${index >= 4 ? "md:col-span-2 lg:col-span-1" : ""}`}
+              className="group relative"
             >
               {/* Light gradient glow on hover */}
               <div className="absolute -inset-[1px] bg-gradient-to-br from-zinc-400 via-zinc-300 to-zinc-200 rounded-2xl opacity-0 group-hover:opacity-15 transition duration-500 blur-sm" />
