@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
+import { StatsCounter } from "@/components/stats-counter";
 import FeaturesSection from "@/components/features-section";
 import PricingSection from "@/components/pricing-section";
 import IntegrationSection from "@/components/integration-section";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-950">
       <Header />
       <HeroSection />
+      <StatsCounter />
       <div id="features">
         <FeaturesSection />
       </div>

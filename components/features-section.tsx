@@ -9,6 +9,12 @@ import {
   FiShield,
   FiBarChart2,
   FiCreditCard,
+  FiMail,
+  FiMessageSquare,
+  FiUsers,
+  FiSmartphone,
+  FiBell,
+  FiLock,
 } from "react-icons/fi";
 
 export function GridPattern({ width, height, x, y, squares, ...props }: any) {
@@ -100,6 +106,22 @@ const features = [
     bgColor: "bg-purple-100",
   },
   {
+    title: "SMS Campaigns",
+    description:
+      "Send bulk SMS campaigns to your customers. Track delivery status and engagement in real-time.",
+    icon: FiMessageSquare,
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-100",
+  },
+  {
+    title: "Email Campaigns",
+    description:
+      "Send email campaigns with custom SMTP. Support for HTML templates and personalization.",
+    icon: FiMail,
+    color: "text-rose-600",
+    bgColor: "bg-rose-100",
+  },
+  {
     title: "KYC Phone Verification",
     description:
       "Verify phone numbers and resolve registered names instantly. 1 credit per verification for Ghana numbers.",
@@ -116,42 +138,50 @@ const features = [
     bgColor: "bg-orange-100",
   },
   {
+    title: "Team Management",
+    description:
+      "Invite team members with role-based access. Admin, Developer, and Viewer roles for your organization.",
+    icon: FiUsers,
+    color: "text-sky-600",
+    bgColor: "bg-sky-100",
+  },
+  {
+    title: "USSD OTP Retrieval",
+    description:
+      "Users can retrieve OTP codes via USSD (*713*882#). No internet required—works on any phone.",
+    icon: FiSmartphone,
+    color: "text-lime-600",
+    bgColor: "bg-lime-100",
+  },
+  {
     title: "3-Strike Security",
     description:
       "Built-in brute force protection with automatic lockout after 3 failed verification attempts.",
-    icon: FiShield,
+    icon: FiLock,
     color: "text-green-600",
     bgColor: "bg-green-100",
   },
   {
     title: "Real-time Dashboard",
     description:
-      "Monitor OTP delivery, success rates, and KYC analytics in a beautiful developer portal.",
+      "Monitor OTP delivery, SMS/Email campaigns, and analytics in a beautiful developer portal.",
     icon: FiBarChart2,
     color: "text-cyan-600",
     bgColor: "bg-cyan-100",
+  },
+  {
+    title: "Low Credit Alerts",
+    description:
+      "Automatic SMS and email alerts when your balance runs low. Never miss a verification.",
+    icon: FiBell,
+    color: "text-amber-600",
+    bgColor: "bg-amber-100",
   },
   {
     title: "Flexible Billing",
     description:
       "Credit-based pricing with 7 tiers. Credits never expire. Volume discounts up to 26% off.",
     icon: FiCreditCard,
-    color: "text-amber-600",
-    bgColor: "bg-amber-100",
-  },
-  {
-    title: "Webhook Support",
-    description:
-      "Real-time webhooks for OTP events. Get instant notifications when verifications succeed or fail.",
-    icon: FiCode,
-    color: "text-teal-600",
-    bgColor: "bg-teal-100",
-  },
-  {
-    title: "99.9% Uptime SLA",
-    description:
-      "Enterprise-grade reliability with guaranteed uptime. Your verifications work when you need them.",
-    icon: FiShield,
     color: "text-violet-600",
     bgColor: "bg-violet-100",
   },
@@ -171,10 +201,10 @@ export default function FeaturesSection() {
             Features
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 tracking-tight">
-            Everything you need to verify users
+            Everything you need in one platform
           </h2>
           <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
-            Enterprise-grade OTP verification with the flexibility developers love
+            OTP verification, SMS & Email campaigns, KYC, and team management—all in one powerful developer platform
           </p>
         </div>
 

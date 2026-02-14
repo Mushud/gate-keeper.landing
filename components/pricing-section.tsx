@@ -79,11 +79,11 @@ const pricingTiers = [
     popular: false,
     features: [
       "9,000 SMS & Email OTPs",
+      "SMS & Email Campaigns",
       "Hosted Checkout Pages",
       "Direct API Access",
       "Basic Analytics",
       "Email Support",
-      "Custom Branding",
     ],
   },
   {
@@ -95,13 +95,13 @@ const pricingTiers = [
     popular: true,
     features: [
       "25,000 SMS & Email OTPs",
+      "SMS & Email Campaigns",
       "Hosted Checkout Pages",
       "Direct API Access",
       "Advanced Analytics",
       "Priority Support",
-      "Custom Branding",
-      "Webhook Integration",
-      "API Rate Limit Increase",
+      "Team Management",
+      "Custom SMTP",
     ],
   },
   {
@@ -113,15 +113,15 @@ const pricingTiers = [
     popular: false,
     features: [
       "65,000 SMS & Email OTPs",
+      "SMS & Email Campaigns",
       "Hosted Checkout Pages",
       "Direct API Access",
       "Enterprise Analytics",
       "24/7 Support",
+      "Unlimited Team Members",
       "Custom Sender ID",
-      "Unlimited API Rate",
-      "Custom Integrations",
+      "API Rate Limit Increase",
       "Dedicated Account Manager",
-      "SLA Guarantee",
     ],
   },
 ];

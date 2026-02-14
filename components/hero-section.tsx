@@ -215,9 +215,8 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-zinc-600 mb-10 max-w-2xl leading-relaxed">
-            Secure, scalable OTP verification and KYC phone verification with
-            hosted checkout pages and REST API. Integrate in minutes, trusted by
-            businesses.
+            Secure OTP verification, SMS & Email campaigns, KYC phone verification, and team management—all with
+            hosted checkout pages and REST API. Integrate in minutes.
           </p>
 
           {/* CTAs */}
@@ -269,6 +268,24 @@ export default function HeroSection() {
                 strokeWidth={1.5}
                 className="text-green-600"
               />
+              <span>SMS & Email OTP</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <HugeiconsIcon
+                icon={CheckmarkSquareIcon}
+                size={20}
+                strokeWidth={1.5}
+                className="text-green-600"
+              />
+              <span>Bulk SMS campaigns</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <HugeiconsIcon
+                icon={CheckmarkSquareIcon}
+                size={20}
+                strokeWidth={1.5}
+                className="text-green-600"
+              />
               <span>KYC verification</span>
             </div>
             <div className="flex items-center gap-2">
@@ -278,16 +295,7 @@ export default function HeroSection() {
                 strokeWidth={1.5}
                 className="text-green-600"
               />
-              <span>No credit card required</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <HugeiconsIcon
-                icon={CheckmarkSquareIcon}
-                size={20}
-                strokeWidth={1.5}
-                className="text-green-600"
-              />
-              <span>5-minute setup</span>
+              <span>Team management</span>
             </div>
           </div>
 

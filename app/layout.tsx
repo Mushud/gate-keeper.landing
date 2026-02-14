@@ -20,6 +20,18 @@ export const metadata: Metadata = {
     shortcut: '/logo.png',
     apple: '/logo.png',
   },
+  openGraph: {
+    title: "GateKeeperPro - Seamless OTP Verification for Modern Apps",
+    description: "Secure OTP verification with hosted checkout pages and direct API integration. Built for developers, trusted by businesses.",
+    images: ['/logo.png'],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: "GateKeeperPro - Seamless OTP Verification for Modern Apps",
+    description: "Secure OTP verification with hosted checkout pages and direct API integration.",
+    images: ['/logo.png'],
+  },
 };
 
 export default function RootLayout({
@@ -29,9 +41,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/GateKeeperLogo.png" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
