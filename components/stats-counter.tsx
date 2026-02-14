@@ -63,7 +63,7 @@ export function StatsCounter() {
     const fetchStats = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/public/stats`
+          `https://api.gatekeeperpro.live/api/public/stats`
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
